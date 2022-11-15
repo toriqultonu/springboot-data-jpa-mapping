@@ -19,5 +19,5 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "course_sequence")
     private Long courseId;
     private String title;
-    private String credit;
+    private int credit;
 }
