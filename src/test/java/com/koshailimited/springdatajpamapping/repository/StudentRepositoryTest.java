@@ -1,5 +1,6 @@
 package com.koshailimited.springdatajpamapping.repository;
 
+import com.koshailimited.springdatajpamapping.entity.Guardian;
 import com.koshailimited.springdatajpamapping.entity.Student;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,21 @@ class StudentRepositoryTest {
     @Test
     public void saveStudent(){
         Student student = Student.builder().emailId("toriqultonu25@gmail.com").firstName("toriql")
-                .lastName("islam").guardianName("Abu Taher").guardianEmail("taher@gmail.com")
-                .guardianMobile("023723572")
+                .lastName("islam")
+//                .guardianName("Abu Taher").guardianEmail("taher@gmail.com")
+//                .guardianMobile("023723572")
+                .build();
+
+        studentRepository.save(student);
+    }
+
+    @Test
+    public void saveStudentWithGuardian(){
+
+        Guardian guardian = Guardian.builder().name("Ziaul").email("zia@gmail.com").mobile("235324434").build();
+
+        Student student = Student.builder().firstName("Arshil").lastName("Azeem").emailId("arshil@azem.com")
+                .guardian(guardian)
                 .build();
 
         studentRepository.save(student);

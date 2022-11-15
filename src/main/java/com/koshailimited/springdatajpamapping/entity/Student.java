@@ -23,7 +23,7 @@ public class Student {
     private String lastName;
     @Column(nullable = false, name = "email_address")
     private String emailId;
-    private String guardianName;
-    private String guardianEmail;
-    private String guardianMobile;
+
+    private Guardian guardian;
+
 }
