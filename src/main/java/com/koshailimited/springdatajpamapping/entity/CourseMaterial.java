@@ -9,6 +9,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@ToString(exclude = "course")
 public class CourseMaterial {
 
     @Id
@@ -16,7 +17,7 @@ public class CourseMaterial {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "course_material_sequence")
     private Long courseMaterialId;
     private String url;
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "course_id", referencedColumnName = "courseId")
     private Course course;
 }
