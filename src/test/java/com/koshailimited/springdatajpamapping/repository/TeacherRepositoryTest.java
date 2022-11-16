@@ -23,7 +23,7 @@ class TeacherRepositoryTest {
         Course db = Course.builder().title("db").credit(3)
                 .build();
 
-        Teacher teacher = Teacher.builder().firstName("Furuk").lastName("Zaman").courseList(List.of(stats,db))
+        Teacher teacher = Teacher.builder().firstName("Furuk").lastName("Zaman")//.courseList(List.of(stats,db))
                 .build();
 
         teacherRepository.save(teacher);
