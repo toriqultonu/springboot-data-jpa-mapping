@@ -24,4 +24,5 @@ public class Teacher {
 //    @OneToMany(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "teacher_id", referencedColumnName = "teacherId")
 //    private List<Course> courseList;
+
 }

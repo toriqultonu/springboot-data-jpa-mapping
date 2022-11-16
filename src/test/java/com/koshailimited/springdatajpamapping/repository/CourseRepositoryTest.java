@@ -1,6 +1,7 @@
 package com.koshailimited.springdatajpamapping.repository;
 
 import com.koshailimited.springdatajpamapping.entity.Course;
+import com.koshailimited.springdatajpamapping.entity.Student;
 import com.koshailimited.springdatajpamapping.entity.Teacher;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +39,19 @@ class CourseRepositoryTest {
     @Test
     public void findAllPagination(){
         Pageable firstPage = (Pageable) PageRequest.of(0,3);
+    }
+
+    @Test
+    public void saveCourseWithStudentAndTeacher(){
+        Teacher teacher = Teacher.builder().firstName("Hasem").lastName("Ali")
+                .build();
+
+        Course course = Course.builder().title("AI").credit(3).teacher(teacher)
+                .build();
+        Student student = Student.builder().firstName("Tit").lastName("werws").emailId("asdfasd@gmail.com")
+                .build();
+        course.addStudent(student);
+
+        courseRepository.save(course);
     }
 }
